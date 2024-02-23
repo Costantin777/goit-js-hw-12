@@ -45,7 +45,7 @@ async function onFormSubmit(ev) {
     if (data.hits.length === 0) {
       ev.target.reset(); // очищення input
 
-      showErrorMessenge();
+      showErrorMessage();
       hiddenLoader();
       return;
     } else {
@@ -106,7 +106,7 @@ function showError() {
     position: 'topRight',
   });
 }
-function showErrorMessenge() {
+function showErrorMessage() {
   iziToast.error({
     backgroundColor: '#ff0000',
     position: 'topRight',
