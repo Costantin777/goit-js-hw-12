@@ -2,23 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <title>HW-JS-12</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <load ="partials/header.html" />
+    <div class="container">
+      <form class="form">
+        <input
+          type="text"
+          class="text-form"
+          name="query"
+          placeholder="Search images..."
+        />
+        <button type="submit" class="button">Search</button>
+      </form>
 
-    <section>
-      <h1>Example page title</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
-    </section>
+      <ul class="gallery"></ul>
+      <span class="loader hidden"></span>
+    </div>
 
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
+    <div class="btn-load-more">
+      <button
+        type="button"
+        class="btn button js-btn-load hidden"
+        data-action="load-more"
+      >
+        <span class="label">Load more</span>
+      </button>
+    </div>
 
-    <script type="module" src="./main.js"></script>
+    <script src="./main.js" type="module"></script>
   </body>
 </html>
