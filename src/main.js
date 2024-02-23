@@ -1,5 +1,5 @@
-import { fetchImages } from './js/pixabay-api';
-import { templateImages } from './js/render-functions';
+import { fetchImages } from './pixabay-api.js';
+import { renderImages, renderLoadMoreButton } from './render-functions.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
@@ -118,14 +118,14 @@ function showErrorMessage() {
 function showErrorEnd() {
   iziToast.error({
     backgroundColor: '#dc143c',
-    message: "We're sorry, but you've reached the end of search results",
-    position: 'bottomCenter',
+    message: `We're sorry, but you've reached the end of search results`,
+    position: `bottomCenter`,
   });
 }
 // =============== кнопка loadMore ===================
 function showLoadBtn() {
-  refs.loadMore.classList.remove('hidden');
+  refs.loadMore.classList.remove(`hidden`);
 } //показує кнопку loadMore
 function hiddenLoadBtn() {
-  refs.loadMore.classList.add('hidden');
+  refs.loadMore.classList.add(`hidden`);
 } //ховає кнопку loadMore
