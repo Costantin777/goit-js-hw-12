@@ -1,14 +1,13 @@
-// ==========функція відправлення кур'єра на сервер===========
-
 import axios from 'axios';
 
 export async function fetchImages(query, currentPage) {
-  const BASE_URL = 'https://pixabay.com/';
-  const END_POINT = 'api/';
+  const API_KEY = '42356211-e192fc2ea90e5ac732e43fabf';
+  const BASE_URL = 'https://pixabay.com';
+  const END_POINT = '/api/';
   const url = `${BASE_URL}${END_POINT}`;
 
   const params = {
-    key: '42263617-81d7156b9f7b88cd7b1016c2a',
+    key: API_KEY,
     q: query,
     image_type: 'photo',
     orientation: 'horizontal',
@@ -17,6 +16,7 @@ export async function fetchImages(query, currentPage) {
     page: currentPage,
   };
 
-  const res = await axios.get(url, { params });
-  return res.data;
+  const response = await axios.get(url, { params });
+
+  return response.data;
 }

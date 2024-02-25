@@ -1,21 +1,17 @@
-import axios from 'axios';
+export function imagesTemplate(data) {
+  return data.hits
 
-const BASE_URL = 'https://pixabay.com/';
-const END_POINT = 'api/';
+    .map(image => {
+      return ` <li class="gallery-item">
+        <a href="${image.largeImageURL}">
+          <img class="gallery-image" src="${image.webformatURL}" alt="${image.tags}">
+        </a>
+        <p><b>Likes: </b>${image.likes}</p>
+        <p><b>Views: </b>${image.views}</p>
+        <p><b>Comments: </b>${image.comments}</p>
+        <p><b>Downloads: </b>${image.downloads}</p>
+      </li>`;
+    })
 
-export async function fetchImages(query, currentPage) {
-  const url = `${BASE_URL}${END_POINT}`;
-
-  const params = {
-    key: '42263617-81d7156b9f7b88cd7b1016c2a',
-    q: query,
-    image_type: 'photo',
-    orientation: 'horizontal',
-    safesearch: 'true',
-    per_page: 15,
-    page: currentPage,
-  };
-
-  const res = await axios.get(url, { params });
-  return res.data;
+    .join('');
 }
